@@ -12,15 +12,27 @@
 #include <QCryptographicHash>
 #include <QMessageBox>
 #include <vector>
+#include <boost_1_60_0/boost/serialization/serialization.hpp>
 
 class Files {
-  public:
+ public:
     QFileInfo file;
     QString absolutepath;
     QString hash1;
     QString hash2;
     QString hash3;
     QString filename;
+
+ template<class Archive>
+    void serialize(Archive & ar, const unsigned int version)
+     {
+         ar & file;
+         ar & absolutepath;
+         ar & hash1;
+         ar & hash2;
+         ar & hash3;
+         ar & filename;
+    }
 };
 
 
@@ -56,6 +68,7 @@ QString ReadPath2(QString path,int level, QFile*  mFile,int k){
     QDir folder(path);
     QString buffer;
     QTextStream stream(mFile);
+    boost::archive::text_oarchive serializer(stream);
     QFileInfo pFile(*mFile);
     if(!folder.exists()) {
         //qDebug() << "Такой дериктории не существует. Введите путь заново. " + '\n';
@@ -63,7 +76,9 @@ QString ReadPath2(QString path,int level, QFile*  mFile,int k){
         msgBox.setText("У вас почти получилось!");
         msgBox.exec();
         buffer = buffer + "Такой дериктории не существует. Введите путь заново. "+ '\n';
+        serializer << buffer;
         stream << buffer;
+
     }
 
     if(k==1) {
@@ -97,6 +112,7 @@ QString ReadPath2(QString path,int level, QFile*  mFile,int k){
              rem.close();
          }
         check++;
+        serializer << buffer;
         stream << buffer;
     }
 
