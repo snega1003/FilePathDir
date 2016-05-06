@@ -113,20 +113,3 @@ void MainWindow::ReadPath(const QString &filePath) {
     mFile.close();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
