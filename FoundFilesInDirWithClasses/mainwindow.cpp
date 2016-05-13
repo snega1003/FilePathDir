@@ -12,9 +12,15 @@
 #include <QCryptographicHash>
 #include <QMessageBox>
 #include <vector>
+<<<<<<< HEAD
 //#include <boost/serialization/serialization.hpp>
 //#include <boost/archive/text_oarchive.hpp>
 //#include <boost/archive/text_iarchive.hpp>
+=======
+#include <boost/serialization/serialization.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+>>>>>>> origin/master
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -130,4 +136,7 @@ void MainWindow::ReadPath(const QString &filePath) {
     mFile.close();
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
