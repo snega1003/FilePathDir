@@ -12,9 +12,9 @@
 #include <QCryptographicHash>
 #include <QMessageBox>
 #include <vector>
-//#include <boost/serialization/serialization.hpp>
-//#include <boost/archive/text_oarchive.hpp>
-//#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/serialization.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

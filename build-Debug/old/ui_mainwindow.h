@@ -24,7 +24,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionPrint_directory;
+    QAction *actionPrint_Path;
     QWidget *centralWidget;
     QTextEdit *textEdit;
     QToolBar *mainToolBar;
@@ -34,19 +34,19 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(400, 300);
-        actionPrint_directory = new QAction(MainWindow);
-        actionPrint_directory->setObjectName(QStringLiteral("actionPrint_directory"));
+        actionPrint_Path = new QAction(MainWindow);
+        actionPrint_Path->setObjectName(QStringLiteral("actionPrint_Path"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         textEdit = new QTextEdit(centralWidget);
         textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(3, 0, 391, 261));
+        textEdit->setGeometry(QRect(0, 0, 391, 271));
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
 
-        mainToolBar->addAction(actionPrint_directory);
+        mainToolBar->addAction(actionPrint_Path);
 
         retranslateUi(MainWindow);
 
@@ -56,7 +56,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionPrint_directory->setText(QApplication::translate("MainWindow", "Print directory", 0));
+        actionPrint_Path->setText(QApplication::translate("MainWindow", "Print Path", 0));
     } // retranslateUi
 
 };
